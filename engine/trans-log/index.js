@@ -37,7 +37,6 @@ p.start = function(cb) {
 
 p.write = function(cmd, cb) {
   var json = cmd.toJSON();
-
   var buf = new Buffer(json + this.marker, 'utf8');
   var self = this;
   fs.write(this.fileHandle, buf, 0, buf.length, null, cb);
