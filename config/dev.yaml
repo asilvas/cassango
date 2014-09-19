@@ -1,0 +1,19 @@
+---
+listener:
+  description: >
+    Listener configurations.
+  value:
+    host: localhost
+    port: 11911
+
+node:
+  description: >
+    Node configurations.
+  value:
+    id: node1
+
+storage:
+  description: >
+    Storage configurations.
+  value:
+    path: /tmp
