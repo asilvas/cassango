@@ -1,5 +1,7 @@
 var fs = require('fs');
 var path = require('path');
+var async = require('async');
+var Table = require('../table');
 
 module.exports = Db;
 
@@ -9,6 +11,7 @@ function Db(engine, dbId) {
   this.path = path.join(engine.storage.path, 'db', dbId);
   this.configFn = path.join(this.path, 'config.json');
   this.config = {};
+  this.tables = {};
 }
 
 Db.queryDbs = function(engine, cb) {
@@ -34,6 +37,14 @@ Db.createOrUpdate = function(engine, dbId, opts, cb) {
     }
     // ignore other failures for now since we allow failure if already exists
   }
+  try {
+    fs.mkdirSync(path.join(db.path, 'table'));
+  } catch (ex) {
+    if (ex.toString().indexOf('EEXIST') < 0) {
+      throw ex;
+    }
+    // ignore other failures for now since we allow failure if already exists
+  }
   db.saveConfig(cb);
 };
 
@@ -43,7 +54,32 @@ p.start = function(cb) {
   var self = this;
   fs.readFile(this.configFn, { encoding: 'utf8'}, function(err, data) {
     self.config = JSON.parse(data);
-    cb(err, self.config);
+
+    try {
+      fs.mkdirSync(path.join(self.path, 'table'));
+    } catch (ex) {
+      if (ex.toString().indexOf('EEXIST') < 0) {
+        throw ex;
+      }
+      // ignore other failures for now since we allow failure if already exists
+    }
+
+    var tasks = [];
+
+    // query & load tables
+    Table.queryTables(self, function(err, ids) {
+      ids.forEach(function(id) {
+        var table = new Table(self, id);
+        self.tables[id] = table;
+        tasks.push((function(table) {
+          return function(cb) {
+            table.start(cb); // return after table has started
+          }
+        })(table));
+      });
+    });
+
+    async.parallel(tasks, cb);
   })
 };
 

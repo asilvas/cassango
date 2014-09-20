@@ -15,6 +15,10 @@ Swagger.prototype.setupSwagger = function(app) {
 
   app.set('x-powered-by', 'CASSANGO');
 
+  app.use(function(req, res, next) { req.locals = {}; next(); }); // todo: is this needed?
+  app.param('dbId', require('./util/paramHandlers/db-id-validator'));
+  app.param('tableId', require('./util/paramHandlers/table-id-validator'));
+
   this.swaggerInstance.setAppHandler(app);
 
   this.addModels();

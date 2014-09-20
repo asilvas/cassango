@@ -1,23 +1,22 @@
 'use strict';
 
 exports.serverLogger = {
-  action: require('./patch-doc'),
+  action: require('./patch-table'),
   spec: {
     method: 'PATCH',
-    path: '/table/{tableId}/doc/{docId}',
-    nickname: 'patch-doc',
-    summary: 'Upsert Document',
+    path: '/db/{dbId}/table/{tableId}',
+    nickname: 'patch-table',
+    summary: 'Upsert Table. No, it won\'t wipe out data.',
     description: '...',
     notes: '...',
     parameters: [
+      require('../../../resources/db-id'),
       require('../../../resources/table-id'),
-      require('../../../resources/doc-id'),
       {
-        name: 'document',
-        description: 'Document data',
+        name: 'config',
+        description: 'Table configuration',
         defaultValue: JSON.stringify({
-          oldField: 'newValue',
-          newField: 'newValue'
+          something_goes_here: 'maybe'
         }),
         type: 'string',
         required: true,

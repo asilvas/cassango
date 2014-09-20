@@ -4,14 +4,15 @@ exports.serverLogger = {
   action: require('./get-doc'),
   spec: {
     method: 'GET',
-    path: '/table/{tableId}/doc/{docId}',
+    path: '/db/{dbId}/table/{tableId}/doc/{docId}',
     nickname: 'get-doc',
     summary: 'Get Document',
     description: '...',
     notes: '...',
     parameters: [
-      require('../../../resources/table-id'),
-      require('../../../resources/doc-id')
+      require('../../../../resources/db-id'),
+      require('../../../../resources/table-id'),
+      require('../../../../resources/doc-id')
     ]
   }
 };
