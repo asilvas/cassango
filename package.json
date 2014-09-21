@@ -8,7 +8,6 @@
   },
   "dependencies": {
     "async": "~0.9.0",
-    "batch-request": "http://172.19.112.191:8080/package/batch-request/0.1.1",
     "cookie": "~0.1.2",
     "del": "^0.1.3",
     "error": "3.0.0",
@@ -25,7 +24,8 @@
     "require-directory": "^2.0.0",
     "swagger-node-express": "2.1.0",
     "swagger-validation": "1.2.1",
-    "uuid": "^1.4.1"
+    "uuid": "^1.4.1",
+    "batch-request": "~0.1.1"
   },
   "devDependencies": {
     "chai": "~1.9.1",
