@@ -17,7 +17,7 @@ module.exports = function (req, res, next) {
     return void next(err);
   }
 
-  var cmd = Command.putDocument({ db: req.params.dbId, table: req.params.tableId, content: req.body });
+  var cmd = Command.putDocument({ db: req.params.dbId, table: req.params.tableId, partKey: req.params.partKey, rowKey: req.params.rowKey, content: req.body });
 
   req.app.engine.transLog.write(cmd, function(err) {
     if (err) {

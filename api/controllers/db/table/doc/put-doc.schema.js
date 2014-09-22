@@ -4,7 +4,7 @@ exports.serverLogger = {
   action: require('./put-doc'),
   spec: {
     method: 'PUT',
-    path: '/db/{dbId}/table/{tableId}/doc/{docId}',
+    path: '/db/{dbId}/table/{tableId}/doc/{partKey}/{rowKey}',
     nickname: 'put-doc',
     summary: 'Replace Document',
     description: '...',
@@ -12,7 +12,8 @@ exports.serverLogger = {
     parameters: [
       require('../../../../resources/db-id'),
       require('../../../../resources/table-id'),
-      require('../../../../resources/doc-id'),
+      require('../../../../resources/part-key'),
+      require('../../../../resources/row-key'),
       {
         name: 'document',
         description: 'Document data',
