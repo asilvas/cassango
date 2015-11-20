@@ -14,11 +14,13 @@ A single nosql store to fill all common needs to build applications that scale t
 * Large object support (> 1MB < 4GB)
 * Indexes
 * Local replication
-* Filtering (index still required)
+* Index Filters (slow)
+* Non-Index Filters (very slow)
 * Distributed
 * Indexable header fields
-* Compound indexes
+* Compound indexes (tbd)
 * Coordinator proxies
+* Driverless (round robin REST)
 * Cache tables
 * Compression
 * Node sync
@@ -38,18 +40,19 @@ A single nosql store to fill all common needs to build applications that scale t
 
 # Commandments
 
-* Thou shalt scale throughput linearly (1)
-* Thou shalt scale storage linearly
-* Thou shall provide average response times less than 10ms (2)
-* Thou shalt perform in a predictable manner (3)
+* Thou shalt scale throughput linearly (1, 2)
+* Thou shalt scale storage linearly (2)
+* Thou shall provide average response times less than 10ms (2, 3)
+* Thou shalt perform in a predictable manner (3, 4)
 * Thou shalt be simple enough for a hobbyist to setup and maintain
-* Thou shalt perform even after index sizes exceed memory capacity (4)
+* Thou shalt perform even after index sizes exceed memory capacity (5)
 
 
 1. With greater than or equal to 99.5% efficiency
-2. Leveraging commodity SSD grade hardware under 50% load for basic operations
-3. Simple operations perform quickly, complex operations can take any amount of time
-4. Though may result in YELLOW status for performance noting possible degradation of service
+2. For basic (GET/PUT/PATCH/POST) operations only
+3. Leveraging commodity SSD grade hardware under 50% load for basic operations
+4. Simple operations perform quickly, complex operations can take any amount of time
+5. Though may result in YELLOW status for performance noting possible degradation of service
 
 
 
@@ -57,30 +60,43 @@ A single nosql store to fill all common needs to build applications that scale t
 # REST Interface
 
 * CRUD
-  * GET /table/:table/entity/:key
-  * PUT /table/:table/entity/:key
-  * POST /table/:table/entity/:key
-  * PATCH /table/:table/entity/:key
-  * DELETE /table/:table/entity/:key
+  * GET /db/table/:table/entity/:key
+  * PUT /db/table/:table/entity/:key
+  * POST /db/table/:table/entity/:key
+  * PATCH /db/table/:table/entity/:key
+  * DELETE /db/table/:table/entity/:key
 * SELECT
-  * GET /table/:table/select/:key1,:key2,etc
-  * POST /table/:table/select
+  * GET /db/table/:table/select/:key1,:key2,etc
+  * POST /db/table/:table/select
 * SEARCH
-  * POST /table/:table/search
+  * POST /db/table/:table/search
 * TABLE CRUD
-  * GET /table/:table
-  * PUT /table/:table
-  * POST /table/:table
-  * PATCH /table/:table
-  * DELETE /table/:table
+  * GET /db/table/:table
+  * PUT /db/table/:table
+  * POST /db/table/:table
+  * PATCH /db/table/:table
+  * DELETE /db/table/:table
 * INDEX CRUD
-  * GET /table/:table/index/:index
-  * PUT /table/:table/index/:index
-  * POST /table/:table/index/:index
-  * PATCH /table/:table/index/:index
-  * DELETE /table/:table/index/:index
+  * GET /db/table/:table/index/:index
+  * PUT /db/table/:table/index/:index
+  * POST /db/table/:table/index/:index
+  * PATCH /db/table/:table/index/:index
+  * DELETE /db/table/:table/index/:index
 * NODES
-  * GET /nodes
+  * GET /admin/nodes
+* USERS
+  * GET /admin/users
+  * GET /admin/users/:user
+  * POST /admin/users/:user
+  * PATCH /admin/users/:user
+  * DELETE /admin/users/:user
+* GROUPS
+  * GET /admin/groups
+  * GET /admin/groups/:group
+  * POST /admin/groups/:group
+  * PATCH /admin/groups/:group
+  * DELETE /admin/groups/:group
+  
 
 
 
