@@ -19,7 +19,7 @@ Goals of this project include:
 * Perform even after index sizes exceed memory capacity (6)
 
 
-1. Designed from the ground up for client-to-database patterns
+1. Designed from the ground up for browser-to-database patterns
 2. Differential history supports moving forward and backward in time
 3. With greater than or equal to 99.5% efficiency
 4. Leveraging commodity SSD grade hardware under 50% load for basic operations
