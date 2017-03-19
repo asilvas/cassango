@@ -19,7 +19,7 @@ Goals of this project include:
 * Perform even after index sizes exceed memory capacity (5)
 
 
-1. Differential history supports moving backward and forward in time
+1. Differential history supports moving forward and backward in time
 2. With greater than or equal to 99.5% efficiency
 3. Leveraging commodity SSD grade hardware under 50% load for basic operations
 4. Simple operations perform quickly, complex operations can take any amount of time
