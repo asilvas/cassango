@@ -9,7 +9,7 @@ A single nosql store to fill most common needs to build applications that scale 
 Goals of this project include:
 
 * Serverless First Architecture (1)
-* Immutable database (2)
+* Immutable data access (2)
 * High availability
 * Scale throughput linearly (3)
 * Scale storage linearly
