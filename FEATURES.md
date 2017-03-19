@@ -1,8 +1,10 @@
 # Prioritized Feature List
 
+* Serverless Architecture - See [SERVERLESS_ARCH](./SERVERLESS_ARCH.md)
+* Immutable storage - See [IMMUTABLE_Spec](./IMMUTABLE_SPEC.md)
+* Document (JSON, text, etc) store
 * Eventual Consistency - See [CONSISTENCY Spec](./CONSISTENCY_SPEC.md)
 * REST interface - See [API Spec](./API_SPEC.md)
-* JSON store
 * Binary store
 * Streaming support
 * Large object support (> 1MB < 4GB)
