@@ -16,7 +16,7 @@ Goals of this project include:
 * Average response times less than 10ms (4)
 * Perform in a predictable manner (5)
 * Simple enough for a hobbyist to setup and maintain
-* Perform even after index sizes exceed memory capacity (6)
+* Perform well even after index sizes exceed memory capacity (6)
 
 
 1. Designed from the ground up for browser-to-database patterns
