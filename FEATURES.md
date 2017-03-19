@@ -1,6 +1,6 @@
 # Prioritized Feature List
 
-* Serverless Architecture - See [SERVERLESS Arch](./SERVERLESS_ARCH.md)
+* Serverless Architecture - See [SERVERLESS Spec](./SERVERLESS_SPEC.md)
 * Immutable storage - See [IMMUTABLE Spec](./IMMUTABLE_SPEC.md)
 * Document (JSON, text, etc) store
 * Eventual Consistency - See [CONSISTENCY Spec](./CONSISTENCY_SPEC.md)
