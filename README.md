@@ -1,7 +1,7 @@
 cassango
 ========
 
-A single nosql store to fill all common needs to build applications that scale to enterprise grade, but with the simplicity of entry level services. Built atop Cassandra to handle the heavy lifting, Cassango is designed to support forward-thinking architectures, such as serverless and immutable data access.
+A single nosql store to fill most common needs to build applications that scale to enterprise grade, but with the simplicity of entry level services. Built atop Cassandra to handle the heavy lifting, Cassango is designed to support forward-thinking architectures, such as serverless and immutable data access.
 
 
 # Goals
