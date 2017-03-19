@@ -5,7 +5,7 @@ While consistency is eventual and tunable, the default behavior is also automati
 
 ## Eventual Consistency
 
-By design to support distributed clusters we rely on data being eventually consistency. For most data access scenarios, this is more than sufficient.
+By design to support distributed clusters we rely on data being eventually consistent. For most data access scenarios, this is more than sufficient.
 In cases where a high consistency is necessary, Important or Critical Consistency can be used to meet needs.
 
 
