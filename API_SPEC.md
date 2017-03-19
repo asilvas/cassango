@@ -1,5 +1,7 @@
 # REST Interface
 
+**Ignore this guide for now, it's based on a very old spec**
+
 * CRUD
   * GET /table/:table/entity/:key/:row
   * PUT /table/:table/entity/:key/:row
