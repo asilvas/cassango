@@ -1,6 +1,6 @@
 # Consistency
 
-While consistency is eventual and tunable, the default behavior is also automatic and favors Optimistic Consistency.
+While consistency is eventual and tunable, the default behavior is also automatic and favors Optimistic Consistency. 
 
 
 ## Eventual Consistency
@@ -10,9 +10,9 @@ In cases where a high consistency is necessary, Important or Critical Consistenc
 
 
 
-## Optimistic Consistency
+## Consistency Policy
 
-
+A consistency policy combines not only the consistency levels, but also the escalation patterns leveraged under failure scenarios. For instance, `Fast` may leverage consistency `LOCAL_ONE`, and on failure retry as `ONE` (multi-dc). A given policy may include multiple levels of escalations, each with potentially unique delays (i.e. fixed, versus linear, versus exponential backoff).
 
 
 ## Tunable Consistency
